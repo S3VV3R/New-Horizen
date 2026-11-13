@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#050507"/>
+<meta name="description" content="An interactive journey to the edge of everything. Explore a real-time, gravitationally lensed black hole in EVENT HORIZON."/>
+<title>EVENT HORIZON — Beyond the Point of No Return</title>
+<link rel="stylesheet" href="/src/style.css"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+</head>
+<body>
+<a class="skip-link" href="#chapter-navigation">Skip to chapter navigation</a>
+<div id="viewport" aria-label="Real-time three-dimensional black hole visualization"></div>
+<div class="screen-shade" aria-hidden="true"></div>
+<div id="loading" role="status"><div class="loading-orbit"></div><strong>EVENT HORIZON</strong><span id="loading-label">INITIALIZING OBSERVATION SYSTEM</span><progress id="loading-progress" max="5" value="0"></progress></div>
+<div id="fallback" hidden><span class="eyebrow">OBSERVATION SYSTEM OFFLINE</span><h1>A window into the unknown.</h1><p>Your browser could not start WebGL. Enable hardware acceleration or try another browser to experience the real-time scene.</p><button id="retry">RETRY INITIALIZATION ↗</button><p class="small">You can still explore the five chapters using the chapter navigation.</p><div class="fallback-chapter"><strong id="fallback-chapter-name">THE VOID</strong><p id="fallback-chapter-text">A distant glow emerges from the darkness. The shadow marks the paths of light that never return.</p></div></div>
+<header class="topbar">
+<a href="#" id="brand" aria-label="Event Horizon, restart journey"><svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="11" stroke="currentColor" stroke-width="1.3"/><ellipse cx="20" cy="20" rx="19" ry="5" transform="rotate(-28 20 20)" stroke="currentColor" stroke-width="1.2"/><circle cx="20" cy="20" r="6" fill="#050507"/></svg><span>EVENT HORIZON</span></a>
+<div class="header-center"><span class="status-dot"></span> AN INTERACTIVE EXPEDITION</div>
+<div class="header-actions"><span id="mode-label" class="mode-label">CINEMATIC</span><button id="explore" class="explore-button"><span>EXPLORE SPACE</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M4 4h12v12"/></svg></button></div>
+</header>
+<aside class="left-scale" aria-hidden="true"><span>OBSERVATION 001</span><div></div><span class="scale-cross">+</span></aside>
+<nav id="chapter-navigation" class="chapter-nav" aria-label="Journey chapters"></nav>
+<aside class="observation" aria-hidden="true"><span class="crosshair">+</span><span>DEEP SPACE<br>SCHWARZSCHILD MODEL</span><i></i></aside>
+<main id="story" aria-live="polite">
+<div class="chapter-copy" id="chapter-copy">
+<p id="chapter-kicker" class="eyebrow">A JOURNEY TO THE EDGE OF EVERYTHING</p>
+<h1 id="chapter-title">EVENT HORIZON</h1>
+<p id="chapter-subtitle">Beyond the Point of No Return.</p>
+<button id="begin" class="begin-button">BEGIN THE JOURNEY <span>↓</span></button>
+<button id="restart" class="begin-button" hidden>RESTART JOURNEY <span>↻</span></button>
+</div>
+</main>
+<div id="annotation" class="annotation" hidden><span class="annotation-line"></span><button id="annotation-toggle" aria-expanded="false"><span class="annotation-dot"></span> <span id="annotation-name">GRAVITATIONAL LENSING</span> <span>+</span></button><div id="annotation-detail" hidden><p id="annotation-copy">Gravity curves the paths of light, revealing the far side of the disk above and below the shadow.</p><button id="next-note"><span id="note-count">01 / 04</span> NEXT OBSERVATION →</button></div></div>
+<div id="free-hint" hidden><span class="eyebrow">YOUR OWN PERSPECTIVE</span><h2>Explore the impossible.</h2><p>Drag to orbit · Scroll or pinch to zoom</p><span class="key-hint">Press <kbd>R</kbd> to return to the journey</span></div>
+<div id="artistic-note" hidden>BEYOND THE HORIZON · AN ARTISTIC INTERPRETATION</div>
+<footer class="bottom-bar">
+<div class="chapter-current"><span id="chapter-number">01 <i>/ 05</i></span><div><strong id="chapter-name">THE VOID</strong><span id="chapter-caption">Every journey begins in the dark.</span></div></div>
+<button class="scroll-cue" id="next-chapter"><span id="scroll-label">SCROLL TO DISCOVER</span><span class="scroll-line"><i></i></span></button>
+<div class="utility-controls">
+<button id="sound" aria-label="Enable cinematic soundtrack" aria-pressed="false"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8v4m4-7v10m4-12v14m4-11v8m4-6v4"/></svg><span>SOUND OFF</span></button>
+<span class="utility-divider"></span>
+<button id="settings-button" aria-label="Graphics and experience settings" aria-expanded="false"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/><circle cx="7" cy="5" r="2"/><circle cx="13" cy="10" r="2"/><circle cx="7" cy="15" r="2"/></svg><span id="quality-label">AUTO</span></button>
+<button id="about-button" aria-label="About the simulation">?</button>
+</div>
+</footer>
+<div class="journey-track" aria-hidden="true"><div id="journey-progress"></div></div>
+<section id="settings" class="settings-panel" aria-label="Graphics settings" hidden>
+<div class="panel-heading"><span class="eyebrow">OBSERVATION SETTINGS</span><button id="settings-close" aria-label="Close settings">×</button></div>
+<label class="setting-label">RENDER QUALITY <span id="resolution-label"></span></label>
+<div class="quality-options" role="group" aria-label="Render quality"><button data-quality="low">LOW</button><button data-quality="medium">MEDIUM</button><button data-quality="high">HIGH</button></div>
+<label class="check-setting"><input type="checkbox" id="auto-quality" checked/><span>Adapt quality to this device</span></label>
+<label class="check-setting"><input type="checkbox" id="reduce-motion"/><span>Reduce motion</span></label>
+<p>Quality changes ray-tracing detail, resolution, star density and bloom.</p>
+</section>
+<dialog id="about-dialog"><button id="about-close" class="dialog-close" aria-label="Close observation notes">×</button><span class="eyebrow">FIELD NOTES / 001</span><h2>At the edge<br>of understanding.</h2><p class="dialog-intro">A real-time journey through a physically inspired black hole.</p><dl><dt>THE SHADOW</dt><dd>The dark region is the apparent black hole shadow. It is larger than the event horizon itself.</dd><dt>THE ACCRETION DISK</dt><dd>Orbiting matter heats up and radiates. The approaching side appears brighter through an artistic approximation of Doppler boosting.</dd><dt>GRAVITATIONAL LENSING</dt><dd>Curved light paths reveal the far side of the disk. This scene traces rays through an approximate, non-rotating Schwarzschild model.</dd><dt>THE PHOTON RING</dt><dd>Light passing near the photon sphere can circle the black hole, forming narrow images around its shadow. This is distinct from the event horizon.</dd></dl><p class="model-note">A visualization, not a scientific instrument. Emission, colors and scale are art-directed. The interior is an artistic interpretation; the optional audio is a synthesized cinematic soundtrack.</p><a href="https://science.nasa.gov/universe/black-holes/anatomy/" target="_blank" rel="noopener noreferrer">EXPLORE THE SCIENCE AT NASA <span>↗</span></a></dialog>
+<dialog id="rick-dialog"><button id="rick-close" aria-label="Close transmission">×</button><h2>You found the Rickgularity.</h2><p>Even here, Rick Astley found you.</p><div id="rick-player"></div><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener">Watch on YouTube ↗</a></dialog><div id="journey" aria-hidden="true"></div>
+<script type="module" src="/src/main.js"></script>
+</body></html>
